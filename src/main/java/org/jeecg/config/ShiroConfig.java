@@ -39,9 +39,10 @@ public class ShiroConfig {
 	public ShiroFilterFactoryBean shiroFilter(SecurityManager securityManager) {
 		ShiroFilterFactoryBean shiroFilterFactoryBean = new ShiroFilterFactoryBean();
 		shiroFilterFactoryBean.setSecurityManager(securityManager);
-		// 拦截器
+		// 拦截器;为了保持过滤器的执行顺序，创建一个 LinkedHashMap
 		Map<String, String> filterChainDefinitionMap = new LinkedHashMap<String, String>();
-		// 配置不会被拦截的链接 顺序判断
+		//配置不会被拦截的链接 顺序判断
+
 		filterChainDefinitionMap.put("/sys/login", "anon"); //登录接口排除
 		filterChainDefinitionMap.put("/auth/2step-code", "anon");//登录验证码
 		filterChainDefinitionMap.put("/test/jeecgDemo/**", "anon"); //测试接口
