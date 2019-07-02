@@ -30,7 +30,7 @@ public class RabbitMQConfig
     private String mailqueue;
 
 //   use Fanout Exchange
-    @Value("${spring.queuename.fannotice}")
+    @Value("${spring.rabbitmq.queuename.fannotice}")
     private String fannotice;
 
     @Bean
@@ -55,7 +55,6 @@ public class RabbitMQConfig
     {
         return BindingBuilder.bind(queue).to(exchange).with(datatopic);
     }
-
 
     /**
      *创建队列fannotice

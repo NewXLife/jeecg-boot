@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class MailConsumer
 {
-    @RabbitListener(queues = {"sendmail"})
+    @RabbitListener(queues = {"fannotice"})
     public void processMessage(String message){
         try {
              // 通过消息队列sendmail 获取到message 的处理逻辑

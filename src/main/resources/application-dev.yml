@@ -15,8 +15,8 @@ management:
 spring:
   mail:
     host: smtp.163.com
-    username: jeecgos@163.com
-    password: ??
+    username: zcd_86@163.com
+    password: ???
     properties:
       mail: 
         smtp: 
@@ -112,8 +112,8 @@ spring:
   rabbitmq:
     host: localhost
     port: 5672
-    username: admin
-    password: 123456
+    username: guest
+    password: guest
     publisher-confirms: false #启动确认回调
     publisher-returns: false  #确认返回回调
     template:
