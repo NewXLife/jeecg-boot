@@ -15,8 +15,8 @@ management:
 spring:
   mail:
     host: smtp.163.com
-    username: jeecgos@163.com
-    password: ??
+    username: zcd_86@163.com
+    password: ???
     properties:
       mail: 
         smtp: 
@@ -107,6 +107,32 @@ spring:
       shutdown-timeout: 100ms
     password: ''
     port: 6379
+
+  #----------------------集成rabbitMQ配置-----------------------#
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+    publisher-confirms: false #启动确认回调
+    publisher-returns: false  #确认返回回调
+    template:
+      mandatory: true  #mandatory标志告诉broker代理服务器至少将消息route到一个队列中，否则就将消息return给发送者
+      exchange: template
+    listener:
+        simple:
+          acknowledge—mode: manual #采用手动应答
+          concurrency: 2      #最小消费者消息监听线程数
+          max-concurrency: 10  #最大消费者消息监听线程数
+          retry:
+            enabled: true #是否支持重试
+    topic:
+      data:
+        notice: t_notice.*
+        mail: t_sendmail
+    queuename:
+        fannotice: fannotice
+
 #mybatis plus 设置
 mybatis-plus:
   mapper-locations: classpath*:org/jeecg/modules/**/xml/*Mapper.xml
