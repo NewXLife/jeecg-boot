@@ -4,9 +4,9 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.jeecgframework.boot</groupId>
 	<artifactId>jeecg-boot</artifactId>
-	<version>1.1.0</version>
+    <version>1.1.0</version>
 
-	<parent>
+    <parent>
 	    <groupId>org.springframework.boot</groupId>
 	    <artifactId>spring-boot-starter-parent</artifactId>
 	    <version>2.0.3.RELEASE</version>
@@ -40,6 +40,12 @@
         <druid.version>1.1.10</druid.version>
         <jwt.version>0.9.1</jwt.version>
         <commons.version>2.6</commons.version>
+
+
+		<jgrapht-core.version>1.2.0</jgrapht-core.version>
+		<jgrapht-ext.version>1.2.0</jgrapht-ext.version>
+		<qlexpress.version>3.2.0</qlexpress.version>
+		<hive.version>1.1.1</hive.version>
     </properties>
     
 	<dependencies>
@@ -77,6 +83,57 @@
 			<artifactId>spring-boot-devtools</artifactId>
 			<optional>true</optional>
 		</dependency> -->
+
+
+		<!-- hive-sql-blood -->
+		<dependency>
+			<groupId>org.jgrapht</groupId>
+			<artifactId>jgrapht-core</artifactId>
+			<version>${jgrapht-core.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.jgrapht</groupId>
+			<artifactId>jgrapht-ext</artifactId>
+			<version>${jgrapht-ext.version}</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/com.google.guava/guava
+		Failed to start bean 'documentationPluginsBootstrapper'
+		hive中引入了guava的低版本会导致app启动失败，此处引入guava的高版本将覆盖hive中的低版本
+		-->
+		<dependency>
+			<groupId>com.google.guava</groupId>
+			<artifactId>guava</artifactId>
+			<version>20.0</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>QLExpress</artifactId>
+			<version>${qlexpress.version}</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.apache.hive/hive-exec -->
+		<dependency>
+			<groupId>org.apache.hive</groupId>
+			<artifactId>hive-exec</artifactId>
+			<version>${hive.version}</version>
+			<exclusions>
+				<exclusion>
+					<artifactId>slf4j-log4j12</artifactId>
+					<groupId>org.slf4j</groupId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/com.google.code.gson/gson -->
+		<dependency>
+			<groupId>com.google.code.gson</groupId>
+			<artifactId>gson</artifactId>
+			<version>2.8.2</version>
+		</dependency>
+
 		
 		<!-- commons -->
 		<dependency>
@@ -155,8 +212,15 @@
 		    <groupId>org.apache.shiro</groupId>
 		    <artifactId>shiro-spring-boot-starter</artifactId>
 		    <version>1.4.0-RC2</version>
+			<exclusions>
+				<exclusion>
+					<artifactId>commons-beanutils</artifactId>
+					<groupId>commons-beanutils</groupId>
+				</exclusion>
+			</exclusions>
 		</dependency>
-		
+
+
 		<!-- Swagger API文档 -->
         <dependency>
 		    <groupId>io.springfox</groupId>
@@ -168,7 +232,7 @@
 		    <artifactId>springfox-swagger-ui</artifactId>
 		    <version>2.9.2</version>
 		</dependency>
-		
+
 		<!-- Redis -->
 		<dependency>
 			 <groupId>org.springframework.boot</groupId>
@@ -195,17 +259,17 @@
 		</dependency>
 		  
 		<!-- Hibernate -->
-		<dependency>
-			<groupId>org.hibernate</groupId>
-			<artifactId>hibernate-core</artifactId>
-			<version>4.1.0.Final</version>
-			<exclusions>
-				<exclusion>
-					<groupId>commons-collections</groupId>
-					<artifactId>commons-collections</artifactId>
-				</exclusion>
-			</exclusions>
-		</dependency>
+<!--		<dependency>-->
+<!--			<groupId>org.hibernate</groupId>-->
+<!--			<artifactId>hibernate-core</artifactId>-->
+<!--			<version>4.1.0.Final</version>-->
+<!--			<exclusions>-->
+<!--				<exclusion>-->
+<!--					<groupId>commons-collections</groupId>-->
+<!--					<artifactId>commons-collections</artifactId>-->
+<!--				</exclusion>-->
+<!--			</exclusions>-->
+<!--		</dependency>-->
 		  
 	</dependencies>
 

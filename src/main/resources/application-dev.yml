@@ -58,6 +58,14 @@ spring:
       stat-view-servlet:
         loginUsername: admin
         loginPassword: 123456
+    hive:
+      drivername: org.apache.hive.jdbc.HiveDriver
+      hivemaster: jdbc:hive2://localhost:10000/default
+      username: model
+      password: model
+      getmetadataurl: http://localhost:38080
+      getmetadataflag: false
+
     dynamic:
       druid: # 全局druid参数，绝大部分值和默认保持一致。(现已支持的参数如下,不清楚含义不要乱设置)
         # 连接池的配置信息
@@ -108,9 +116,9 @@ spring:
     password: ''
     port: 6379
 
-  #----------------------集成rabbitMQ配置-----------------------#
+  #----------------------集成rabbitMQ配置-不需要则注释掉-----------------------#
   rabbitmq:
-    host: localhost
+    host: 127.0.0.1
     port: 5672
     username: guest
     password: guest

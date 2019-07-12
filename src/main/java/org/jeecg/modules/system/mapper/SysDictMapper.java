@@ -8,6 +8,7 @@ import org.jeecg.modules.system.entity.SysDict;
 import org.jeecg.modules.system.model.DuplicateCheckVo;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import org.springframework.stereotype.Repository;
 
 /**
  * <p>
@@ -17,6 +18,7 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
  * @author zhangweijian
  * @since 2018-12-28
  */
+@Repository
 public interface SysDictMapper extends BaseMapper<SysDict> {
 	
 	/**

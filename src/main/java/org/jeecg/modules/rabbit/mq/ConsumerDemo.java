@@ -5,7 +5,7 @@ import org.springframework.stereotype.Service;
 
 
 @Service
-public class MailConsumer
+public class ConsumerDemo
 {
     @RabbitListener(queues = {"fannotice"})
     public void processMessage(String message){

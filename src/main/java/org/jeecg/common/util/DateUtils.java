@@ -20,15 +20,15 @@ import org.springframework.util.StringUtils;
  */
 public class DateUtils extends PropertyEditorSupport {
 	// 各种时间格式
-	public static final SimpleDateFormat date_sdf = new SimpleDateFormat("yyyy-MM-dd");
+	private static final SimpleDateFormat date_sdf = new SimpleDateFormat("yyyy-MM-dd");
 	// 各种时间格式
 	public static final SimpleDateFormat yyyyMMdd = new SimpleDateFormat("yyyyMMdd");
 	// 各种时间格式
 	public static final SimpleDateFormat date_sdf_wz = new SimpleDateFormat("yyyy年MM月dd日");
-	public static final SimpleDateFormat time_sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+	private static final SimpleDateFormat time_sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm");
 	public static final SimpleDateFormat yyyymmddhhmmss = new SimpleDateFormat("yyyyMMddHHmmss");
-	public static final SimpleDateFormat short_time_sdf = new SimpleDateFormat("HH:mm");
-	public static final SimpleDateFormat datetimeFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+	private static final SimpleDateFormat short_time_sdf = new SimpleDateFormat("HH:mm");
+	private static final SimpleDateFormat datetimeFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 	// 以毫秒表示的时间
 	private static final long DAY_IN_MILLIS = 24 * 3600 * 1000;
 	private static final long HOUR_IN_MILLIS = 3600 * 1000;
